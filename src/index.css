@@ -1,0 +1,213 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* Rest CSS */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  background-color: transparent;
+}
+/* HTML5 display-role reset for older browsers */
+/* article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+} */
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Actual app CSS */
+@font-face {
+  font-family: "Libre Baskerville bold";
+  src: url("./fonts/Libre_Baskerville/LibreBaskerville-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("./fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf");
+}
+
+body {
+  text-align: center;
+  margin: 0;
+  background-color: hsl(41, 100%, 96%);
+  /* font-size: 16px; */
+  font-family: "Libre Baskerville bold", serif;
+  color: hsla(230, 68%, 22%, 1);
+}
+
+.gradiantBG {
+  background: linear-gradient(
+      0deg,
+      rgba(234, 195, 112, 0.329) 0%,
+      hsla(41, 100%, 96%, 1) 50%,
+      rgba(234, 195, 112, 0.329) 100%
+    ),
+    url("./images/4gif.gif");
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+
+h1 {
+  /* text-shadow: 0px 0px 7px hsla(0, 0%, 0%, 0.3); */
+  color: hsl(338, 60%, 40%);
+  font-size: 1.8em;
+}
+
+h2 {
+  text-shadow: 0px 0px 7px hsla(0, 0%, 0%, 0.3);
+  font-size: 1.3em;
+  line-height: 1.6em;
+}
+
+h3 {
+  font-size: 2.3em;
+  line-height: 2em;
+  display: block;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+.section {
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+span {
+  line-height: 1.3em;
+  font-family: "Source Sans Pro";
+  font-size: 1.3em;
+}
+
+p {
+  font-family: "Source Sans Pro";
+  line-height: 1.8em;
+  font-size: 1.8em;
+}
+
+@keyframes grow-in {
+  0% {
+    opacity: 0;
+    font-size: 0.2em;
+  }
+  100% {
+    opacity: 1;
+    font-size: 3vw;
+  }
+}

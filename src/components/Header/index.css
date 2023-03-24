@@ -1,0 +1,33 @@
+header {
+  animation: 2s grow-in forwards ease-in-out;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  text-size-adjust: auto;
+}
+
+#wreath {
+  grid-row: 1 / span 5;
+  grid-column: 1 / span 2;
+  overflow-y: hidden;
+  width: 80%;
+  filter: blur(2px);
+}
+
+#header_sentence_1 {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 2;
+  font-size: 0.7em;
+}
+
+#header_sentence_2 {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 2;
+}
+
+#header_sentence_3 {
+  grid-row: 3 / span 1;
+  grid-column: 1 / span 2;
+}

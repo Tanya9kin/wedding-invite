@@ -1,0 +1,21 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(234, 195, 112, 0.459) 0%,
+    rgba(255, 248, 233, 0) 100%
+  );
+  animation: fade-in 4s ease-in forwards;
+}

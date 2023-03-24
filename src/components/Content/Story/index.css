@@ -1,0 +1,150 @@
+#story {
+  background-color: hsla(41, 100%, 70%, 0.6);
+}
+
+.storyImg {
+  border: 7px solid hsla(40, 89%, 89%, 0.87);
+  width: 100%;
+  object-fit: cover;
+}
+
+.storyText {
+  padding: 10px;
+}
+
+.grid-container {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+#couple {
+  z-index: 4;
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 4;
+  position: relative;
+}
+
+#coupleText {
+  grid-row: 1 / span 1;
+  grid-column: 5 / span 5;
+  align-self: center;
+}
+
+#cats {
+  z-index: 2;
+  grid-row: 3 / span 2;
+  grid-column: 3 / span 3;
+  position: relative;
+  top: 40px;
+  transform: rotate(-2deg);
+}
+
+#catsText {
+  grid-row: 4 / span 1;
+  grid-column: 1 / span 2;
+}
+
+#daniel {
+  grid-row: 2 / span 2;
+  grid-column: 6 / span 2;
+  position: relative;
+  bottom: -30px;
+}
+
+#tanya {
+  grid-row: 3 / span 2;
+  grid-column: 8 / span 2;
+  position: relative;
+  top: -50px;
+  transform: rotate(5deg);
+}
+
+#clubText {
+  grid-row: 4 / span 1;
+  grid-column: 6 / span 2;
+  position: relative;
+  top: -20px;
+}
+
+#partyText {
+  grid-row: 4 / span 1;
+  grid-column: 8 / span 2;
+  align-self: flex-end;
+  position: relative;
+  transform: rotate(4deg);
+  background-color: hsla(39, 100%, 63%, 0.7);
+}
+
+@media screen and (max-width: 1100px) {
+  .grid-container {
+    width: 90%;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 350px 1fr 250px 100px 1fr;
+    width: 450px;
+  }
+
+  #couple {
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 6;
+    position: relative;
+  }
+
+  #coupleText {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 6;
+    align-self: center;
+  }
+
+  #daniel {
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 3;
+    position: relative;
+    top: 0px;
+    transform: rotate(-2deg);
+  }
+
+  #tanya {
+    grid-row: 3 / span 1;
+    grid-column: 4 / span 3;
+    position: relative;
+    top: 0px;
+    transform: rotate(5deg);
+  }
+
+  #clubText {
+    grid-row: 4 / span 1;
+    grid-column: 1 / span 3;
+    position: relative;
+    align-self: center;
+    transform: rotate(-2deg);
+    top: 0;
+  }
+
+  #partyText {
+    grid-row: 4 / span 1;
+    grid-column: 5 / span 2;
+    align-self: flex-end;
+    position: relative;
+    transform: rotate(2deg);
+    align-self: flex-end;
+  }
+
+  #cats {
+    grid-row: 5 / span 1;
+    grid-column: 1 / span 4;
+    position: relative;
+    top: 0;
+    transform: rotate(-2deg);
+  }
+
+  #catsText {
+    grid-row: 5 / span 1;
+    grid-column: 5 / span 2;
+    align-self: center;
+    justify-self: right;
+  }
+}

@@ -12,7 +12,7 @@
   padding: 10px;
 }
 
-.grid-container {
+.container {
   display: grid;
   width: 80%;
   margin: 0 auto;
@@ -80,7 +80,7 @@
 }
 
 @media screen and (max-width: 1100px) {
-  .grid-container {
+  .container {
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 350px 1fr 250px 100px 1fr;
   }
@@ -145,4 +145,10 @@
     align-self: center;
     justify-self: right;
   }
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 400px) {
 }

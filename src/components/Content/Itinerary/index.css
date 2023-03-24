@@ -30,7 +30,7 @@ a > .linkToNavigate {
   display: inline;
   margin: 15px 10px;
   height: 30px;
-  width: fit-content;
+  max-width: fit-content;
   filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.5));
 }
 

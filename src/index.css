@@ -64,7 +64,6 @@ thead,
 tr,
 th,
 td,
-article,
 aside,
 canvas,
 details,
@@ -107,7 +106,7 @@ nav,
 section {
   display: block;
 } */
-body {
+/* body {
   line-height: 1;
 }
 ol,
@@ -128,7 +127,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
+} */
 
 /* Actual app CSS */
 @font-face {

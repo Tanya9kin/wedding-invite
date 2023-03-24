@@ -1,0 +1,69 @@
+/* mobile first design */
+/* This will look like one column */
+.container {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.storyImg {
+  border: 7px solid hsla(40, 89%, 89%, 0.87);
+  max-width: 95%;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px auto;
+}
+
+#solo-images {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  /* flex-shrink: 1; */
+}
+
+.storyText {
+  margin: 10px 0;
+  width: 80%;
+}
+
+#daniel {
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+#tanya {
+  position: relative;
+  transform: rotate(5deg);
+}
+
+#couple {
+  position: relative;
+}
+
+#coupleText {
+  position: relative;
+}
+
+#clubText {
+  position: relative;
+  transform: rotate(2deg);
+}
+
+#partyText {
+  position: relative;
+  transform: rotate(-1deg);
+  color: hsl(338, 60%, 40%);
+}
+
+#cats {
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+#catsText {
+  position: relative;
+}

@@ -1,10 +1,17 @@
 import "./index.css";
 import wreath from "../../images/wreath-gif.gif";
+import mobileWreath from "../../images/wreath-small.gif";
+import MediaQuery from "react-responsive";
 
 const Header = () => {
   return (
-    <header className="header">
-      <img id="wreath" src={wreath}></img>
+    <header>
+      <MediaQuery maxWidth={400}>
+        <img id="mobile-wreath" src={mobileWreath}></img>
+      </MediaQuery>
+      <MediaQuery minWidth={401}>
+        <img id="wreath" src={wreath}></img>
+      </MediaQuery>
       <span id="header_sentence_1">
         We are happy to invite you to celebrate with us
       </span>

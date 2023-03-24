@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import "./index.css";
 
 const restrictions = ["none", "Vegan", "Vegeterian"];
 
@@ -36,9 +38,11 @@ const RSVP = () => {
     setConfirmation(false);
     setPhone("");
   };
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     clearForm();
+    navigate("/");
   };
 
   return (
@@ -118,6 +122,7 @@ const RSVP = () => {
       ></input>
       <br />
       <input type="submit" value="Submit"></input>
+      <NavLink to="/">Go Back</NavLink>
     </form>
   );
 };

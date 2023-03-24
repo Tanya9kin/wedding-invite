@@ -1,6 +1,5 @@
 import Story from "./Story/Story";
 import Itinerary from "./Itinerary/Itinerary";
-import RSVP from "./RSVP/RSVP";
 import { useEffect, useState } from "react";
 
 const Content = () => {
@@ -25,7 +24,6 @@ const Content = () => {
     >
       <Story />
       <Itinerary />
-      {formWorking && <RSVP />}
     </div>
   );
 };

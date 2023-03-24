@@ -1,5 +1,9 @@
 /* mobile first design */
 /* This will look like one column */
+#story {
+  background-color: hsla(41, 100%, 70%, 0.4);
+}
+
 .container {
   margin: 0 auto;
   width: 90%;

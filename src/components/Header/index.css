@@ -1,3 +1,25 @@
+@keyframes grow-in {
+  0% {
+    opacity: 0;
+    font-size: 0.2em;
+  }
+  100% {
+    opacity: 1;
+    font-size: 3vw;
+  }
+}
+
+@-webkit-keyframes grow-in {
+  0% {
+    opacity: 0;
+    font-size: 0.2em;
+  }
+  100% {
+    opacity: 1;
+    font-size: 3vw;
+  }
+}
+
 header {
   animation: 2s grow-in forwards ease-in-out;
   display: grid;

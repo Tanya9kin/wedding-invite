@@ -34,7 +34,7 @@ a > .linkToNavigate {
   filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.5));
 }
 
-a > img:hover {
+a > .linkToNavigate:hover {
   filter: drop-shadow(0px 0px 0px hsla(0, 0%, 0%, 0));
 }
 

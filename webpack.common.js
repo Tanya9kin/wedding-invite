@@ -37,7 +37,7 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
         type: "asset/resource",
       },
       {
@@ -49,5 +49,10 @@ module.exports = {
   resolve: {
     extensions: ["*", ".js", ".jsx"],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: "💃Tanya & Daniel🕺",
+      favicon: "./favicon.ico",
+    }),
+  ],
 };

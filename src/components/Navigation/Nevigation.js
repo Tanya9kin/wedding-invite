@@ -1,45 +1,81 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, NavLink } from "react-router-dom";
 import "./index.css";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+import globe from "../../images/favicon-32x32.png";
+
+const languages = [
+  {
+    code: "en",
+    name: "English",
+    country_code: "us",
+  },
+  {
+    code: "he",
+    name: "עברית",
+    country_code: "il",
+  },
+  {
+    code: "ua",
+    name: "Українська",
+    country_code: "ua",
+  },
+];
 
 const Navigation = () => {
-  const [selectedLangCode, setSelectedLandCode] = useState("en");
-  const [selectedLang, setSelectedLang] = useState("English");
+  const { t, i18n } = useTranslation();
+  const [selectedLangCode, setSelectedLangCode] = useState(i18n.language);
+  const [selectedLang, setSelectedLang] = useState(
+    selectedLangCode === "en"
+      ? "English"
+      : selectedLangCode === "he"
+      ? "Hebrew"
+      : "Ukrainian"
+  );
+
+  useEffect(() => {
+    i18n.changeLanguage(selectedLangCode);
+    document.querySelector("html").lang = selectedLangCode;
+    document.querySelector("html").dir =
+      selectedLangCode === "he" ? "rtl" : "ltr";
+  }, [selectedLang]);
 
   const handleClick = (e) => {
     const lang = e.target.id;
-    setSelectedLandCode(lang);
+    console.log(lang);
+    setSelectedLangCode(lang);
     setSelectedLang(
       lang === "en" ? "English" : lang === "he" ? "Hebrew" : "Ukrainian"
     );
   };
 
+  const handleScrollUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <nav>
+    <nav dir="ltr">
       <div className="nav-element">
-        <a href="#">Up</a>
+        <button onClick={handleScrollUp}>UP</button>
       </div>
       <div className="nav-element">
         <NavLink to="RSVP">RSVP</NavLink>
       </div>
       <div className="nav-element" id="lang-menu">
-        <div id="selected-lang">{selectedLang}</div>
+        <img id="selected-lang" src={globe}></img>
         <ul>
-          <li>
-            <Link className="lang" to="/" id="he" onClick={handleClick}>
-              Hebrew
-            </Link>
-          </li>
-          <li>
-            <Link className="lang" to="/" id="ua" onClick={handleClick}>
-              Ukrainian
-            </Link>
-          </li>
-          <li>
-            <Link className="lang" to="/" id="en" onClick={handleClick}>
-              English
-            </Link>
-          </li>
+          {languages.map(({ code, name, country_code }) => (
+            <li
+              key={country_code}
+              className="lang"
+              id={code}
+              onClick={handleClick}
+            >
+              <span className={`fi fi-${country_code}`}></span>
+              {name}
+            </li>
+          ))}
         </ul>
       </div>
     </nav>

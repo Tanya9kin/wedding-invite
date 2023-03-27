@@ -6,11 +6,12 @@ nav {
   display: flex;
   justify-content: space-around;
   backdrop-filter: blur(3px);
-  height: 2.5em;
+  height: 2.2em;
   align-items: center;
   box-shadow: 0px 0px 6px hsla(41, 80%, 40%, 0.5);
   background-color: hsla(41, 100%, 70%, 0.4);
   font-family: "Source Sans Pro", "sans";
+  font-size: 1.3em;
 }
 
 #lang-menu {
@@ -28,58 +29,29 @@ nav {
   box-shadow: 0px 0px 6px hsla(41, 80%, 40%, 0.5);
   border-radius: 3px;
   position: absolute;
-  margin-top: 2.1em;
-  top: 0em;
-  left: 0;
+  /* top: 0; */
+  right: 0px;
 }
 
-#lang-menu ul li .lang {
+#lang-menu ul li {
   display: flex;
-  padding: 5px 10px;
+  padding: 10px;
   align-items: center;
   backdrop-filter: blur(10px);
 }
 
-#lang-menu ul li .lang:hover {
+#lang-menu ul li:hover {
   background-color: hsla(41, 50%, 60%, 0.5);
 }
 
-#lang-menu ul li .lang::before {
-  content: "";
-  display: block;
-  width: 32px;
-  height: 32px;
-  padding-right: 5px;
-  background-repeat: no-repeat;
-}
-
-#ua::before {
-  background-image: url("https://flagsapi.com/UA/flat/32.png");
-}
-
-#he::before {
-  background-image: url("https://flagsapi.com/IL/flat/32.png");
-}
-
-#en::before {
-  background-image: url("https://flagsapi.com/US/flat/32.png");
+#lang-menu ul li span {
+  margin: 0 5px;
 }
 
 #selected-lang {
-  cursor: poiner;
-  display: flex;
-  align-items: center;
-}
-
-#selected-lang::before {
-  content: "";
+  cursor: pointer;
   display: block;
-  width: 32px;
-  height: 32px;
-  padding-right: 5px;
-  background-image: url("../../images/favicon-32x32.png");
-  /* background-size: 25; */
-  background-repeat: no-repeat;
+  width: 100%;
 }
 
 #lang-menu:hover ul {

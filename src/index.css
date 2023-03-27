@@ -32,7 +32,7 @@ body {
   /* font-size: 16px; */
   font-family: "Libre Baskerville bold", serif;
   color: hsla(230, 68%, 22%, 1);
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
 
 .gradiantBG {

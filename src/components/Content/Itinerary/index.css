@@ -76,6 +76,16 @@ a > .linkToNavigate:hover {
   margin: 0 2em;
 }
 
+.hours_element p {
+  font-size: 2em;
+  margin: 15px 0;
+}
+
+html:lang(he) .hours_element p {
+  font-size: 2.2em;
+  margin: 15px 0;
+}
+
 .border {
   content: "";
   width: 100%;

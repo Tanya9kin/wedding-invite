@@ -19,7 +19,7 @@
 footer {
   position: relative;
   bottom: 0;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 100%;
   background: linear-gradient(
     0deg,
@@ -27,4 +27,8 @@ footer {
     rgba(255, 248, 233, 0) 100%
   );
   animation: fade-in 4s ease-in forwards;
+}
+
+footer p {
+  margin-bottom: 0;
 }

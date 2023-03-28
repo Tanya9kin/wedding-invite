@@ -5,7 +5,7 @@ const Footer = () => {
   const { t } = useTranslation();
   return (
     <footer>
-      <span>{t("credits")}</span>
+      <p>{t("credits")}</p>
       {/* <img id="flower1" src={flowerBorder}></img> */}
     </footer>
   );

@@ -13,27 +13,27 @@ const Story = () => {
       <div className="container">
         <article id="couple">
           <img className="storyImg" id="coupleImg" src={coupleImg}></img>
-          <span id="coupleText" className="storyText">
+          <p id="coupleText" className="storyText">
             {t("story.couple")}
-          </span>
+          </p>
         </article>
         <article>
           <div id="solo-images">
             <img className="storyImg" id="daniel" src={daniel}></img>
             <img className="storyImg" id="tanya" src={tanya}></img>
           </div>
-          <span id="clubText" className="storyText">
+          <p id="clubText" className="storyText">
             {t("story.solo")}
-          </span>
-          <span id="partyText" className="storyText">
+          </p>
+          <p id="partyText" className="storyText">
             {t("story.party")}
-          </span>
+          </p>
         </article>
         <article>
           <img className="storyImg" id="cats" src={catsImg}></img>
-          <span id="catsText" className="storyText">
+          <p id="catsText" className="storyText">
             {t("story.cats")}
-          </span>
+          </p>
         </article>
       </div>
     </div>

@@ -104,15 +104,13 @@ h4 {
 }
 
 span {
-  line-height: 1.3em;
   font-family: "Source Sans Pro", "Rubik", sans-serif;
-  font-size: 1.3em;
 }
 
 p {
   font-family: "Source Sans Pro", "Rubik", sans-serif;
-  line-height: 1em;
-  font-size: 1.8em;
+  line-height: 1.4em;
+  font-size: 1.6em;
 }
 
 a {
@@ -132,13 +130,8 @@ html:lang(he) h4 {
   font-size: 2em;
 }
 
-html:lang(he) span {
-  font-size: 1.3em;
-  line-height: 1.5em;
-}
-
 html:lang(he) p {
-  font-size: 2em;
+  font-size: 1.6em;
 }
 
 button {

@@ -37,6 +37,8 @@ header {
 }
 
 #header_sentence_1 {
+  display: block;
+  margin: 0 auto;
   position: relative;
   z-index: 9;
   font-size: 0.8em;
@@ -45,8 +47,8 @@ header {
 #header_sentence_2 {
   position: relative;
   z-index: 9;
-  font-size: 2.5em;
-  margin: 3.5rem 0;
+  font-size: 3em;
+  margin: 2rem 0;
 }
 
 html:lang(he) #header_sentence_2 {
@@ -57,4 +59,34 @@ html:lang(he) #header_sentence_2 {
 #header_sentence_3 {
   position: relative;
   z-index: 9;
+}
+
+@media screen and (max-width: 450px) {
+  #header_text {
+    padding-top: 70px;
+    padding-bottom: 90px;
+    /* backdrop-filter: blur(8px); */
+  }
+
+  #header_sentence_1 {
+    font-size: 1.9em;
+    width: 80%;
+  }
+
+  #header_sentence_2 {
+    position: relative;
+    z-index: 9;
+    /* font-size: 2.5em; */
+    /* margin: 1rem 0; */
+  }
+
+  html:lang(he) #header_sentence_2 {
+    font-size: 4em;
+    margin: 1.5rem 0;
+  }
+
+  #header_sentence_3 {
+    font-size: 1.8em;
+    /* margin-bottom: 2rem 0; */
+  }
 }

@@ -20,73 +20,94 @@
   }
 }
 
-header {
-  animation: 2s grow-in forwards ease-in-out;
-  text-size-adjust: auto;
-  margin: 0 auto;
-  background-image: url("../../images/wreath.png");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+@media screen and (min-width: 200px) {
+  header {
+    animation: 2s grow-in forwards ease-in-out;
+    text-size-adjust: auto;
+    margin: 0 auto;
+    background-image: url("../../images/10.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+  }
 
-#header_text {
-  padding-top: 70px;
-  padding-bottom: 50px;
-  backdrop-filter: blur(8px);
-}
-
-#header_sentence_1 {
-  display: block;
-  margin: 0 auto;
-  position: relative;
-  z-index: 9;
-  font-size: 0.8em;
-}
-
-#header_sentence_2 {
-  position: relative;
-  z-index: 9;
-  font-size: 3em;
-  margin: 2rem 0;
-}
-
-html:lang(he) #header_sentence_2 {
-  font-size: 3em;
-  margin: 2.5rem 0;
-}
-
-#header_sentence_3 {
-  position: relative;
-  z-index: 9;
-}
-
-@media screen and (max-width: 450px) {
   #header_text {
-    padding-top: 70px;
-    padding-bottom: 90px;
-    /* backdrop-filter: blur(8px); */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    background: linear-gradient(
+      0deg,
+      hsla(41, 100%, 96%, 0) 0%,
+      hsla(41, 100%, 96%, 0.8) 50%,
+      hsla(41, 100%, 96%, 0) 100%
+    );
   }
 
   #header_sentence_1 {
-    font-size: 1.9em;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    z-index: 9;
+    font-size: 1.8em;
     width: 80%;
   }
 
   #header_sentence_2 {
-    position: relative;
-    z-index: 9;
-    /* font-size: 2.5em; */
-    /* margin: 1rem 0; */
+    font-size: 3.5em;
+    margin: 2rem 0;
   }
 
   html:lang(he) #header_sentence_2 {
-    font-size: 4em;
-    margin: 1.5rem 0;
+    font-size: 6em;
   }
 
   #header_sentence_3 {
-    font-size: 1.8em;
-    /* margin-bottom: 2rem 0; */
+    position: relative;
+    font-size: 2.5em;
+    z-index: 9;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #header_sentence_1 {
+    font-size: 1.3em;
+  }
+
+  #header_sentence_2 {
+    position: relative;
+    font-size: 3em;
+  }
+
+  html:lang(he) #header_sentence_2 {
+    font-size: 5.3em;
+    margin: 2.7rem 0;
+  }
+
+  #header_sentence_3 {
+    position: relative;
+    font-size: 2em;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  #header_sentence_1 {
+    font-size: 1em;
+  }
+
+  #header_sentence_2 {
+    position: relative;
+    font-size: 2.6em;
+  }
+
+  html:lang(he) #header_sentence_2 {
+    font-size: 3.7em;
+    margin: 2.7rem 0;
+  }
+
+  #header_sentence_3 {
+    position: relative;
+    font-size: 2em;
   }
 }

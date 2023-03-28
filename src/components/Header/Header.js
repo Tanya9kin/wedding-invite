@@ -18,6 +18,7 @@ const Header = () => {
         <span id="header_sentence_1">{t("welcome")}</span>
         <h1 id="header_sentence_2">{t("tanya-n-daniel")}</h1>
         <h2 id="header_sentence_3">{t("date")}</h2>
+        <h2 id="invisible-margin"></h2>
       </div>
     </header>
   );

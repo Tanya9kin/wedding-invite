@@ -69,13 +69,7 @@ body {
 }
 
 #gradiantBG {
-  background: linear-gradient(
-      0deg,
-      rgba(234, 195, 112, 0.329) 0%,
-      hsla(41, 100%, 96%, 1) 50%,
-      rgba(234, 195, 112, 0.329) 100%
-    ),
-    url("./images/4gif.gif");
+  background: color(rgba(234, 195, 112, 0.329)), url("./images/4gif.gif");
   background-repeat: repeat-x;
   background-position: bottom;
 }

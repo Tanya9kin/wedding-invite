@@ -39,13 +39,19 @@ header {
 #header_sentence_1 {
   position: relative;
   z-index: 9;
-  font-size: 1em;
+  font-size: 0.8em;
 }
 
 #header_sentence_2 {
   position: relative;
   z-index: 9;
   font-size: 2.5em;
+  margin: 3.5rem 0;
+}
+
+html:lang(he) #header_sentence_2 {
+  font-size: 3em;
+  margin: 2.5rem 0;
 }
 
 #header_sentence_3 {

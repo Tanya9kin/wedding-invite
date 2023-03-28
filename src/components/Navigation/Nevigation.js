@@ -16,11 +16,11 @@ const languages = [
     name: "עברית",
     country_code: "il",
   },
-  {
-    code: "ua",
-    name: "Українська",
-    country_code: "ua",
-  },
+  // {
+  //   code: "ua",
+  //   name: "Українська",
+  //   country_code: "ua",
+  // },
 ];
 
 const Navigation = () => {
@@ -54,13 +54,22 @@ const Navigation = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleScrollToItinerary = () => {
+    document
+      .getElementById("itinerary")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <nav dir="ltr">
       <div className="nav-element">
-        <button onClick={handleScrollUp}>UP</button>
+        <button onClick={handleScrollToItinerary}>
+          {t("itinerary.heading")}
+        </button>
       </div>
-      <div className="nav-element">
-        <NavLink to="RSVP">RSVP</NavLink>
+      <div className="nav-element" style={{ color: "grey" }}>
+        {t("rsvp_coming_soon")}
+        {/* <NavLink to="RSVP">{t("RSVP")}</NavLink> */}
       </div>
       <div className="nav-element" id="lang-menu">
         <img id="selected-lang" src={globe}></img>

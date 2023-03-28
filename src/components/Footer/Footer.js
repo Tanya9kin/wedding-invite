@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import "./index.css";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <footer>
-      <span>Website made by Tanya Deveykin</span>
+      <span>{t("credits")}</span>
       {/* <img id="flower1" src={flowerBorder}></img> */}
     </footer>
   );

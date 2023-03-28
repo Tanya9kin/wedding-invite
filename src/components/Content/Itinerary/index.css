@@ -16,20 +16,21 @@
   }
 }
 
-.section {
+#itinerary {
   background: linear-gradient(
     0deg,
     hsla(41, 100%, 70%, 0) 0%,
     hsla(41, 100%, 70%, 0.2) 100%
   );
-  animation: blur-bg 2s ease-in-out 1s forwards;
+  backdrop-filter: blur(8px);
+  /* animation: blur-bg 2s ease-in-out 1s forwards; */
 }
 
 #venueLogo {
   z-index: 9;
   position: relative;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 250px;
 }
 
@@ -68,7 +69,8 @@ a > .linkToNavigate:hover {
 }
 
 .hours_element {
-  text-shadow: 1px 1px 3px hsla(41, 60%, 60%, 1);
+  /* text-shadow: 1px 1px 3px hsla(41, 60%, 60%, 1); */
+  font-weight: bold;
   position: relative;
   z-index: 9;
   margin: 0 2em;

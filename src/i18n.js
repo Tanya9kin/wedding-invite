@@ -28,7 +28,7 @@ export default i18n
     debug: true,
     load: "languageOnly",
     supportedLngs: ["en", "he", "ua"],
-    fallbackLng: "en",
+    fallbackLng: "he",
     detection: {
       order: ["htmlTag", "cookie", "path"],
       caches: ["cookie"],

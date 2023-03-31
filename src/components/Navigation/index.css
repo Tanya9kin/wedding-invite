@@ -18,7 +18,7 @@ nav {
   position: relative;
 }
 
-#lang-menu ul {
+#lang-menu > ul {
   display: none;
   margin: 0;
   padding: 0;
@@ -29,35 +29,29 @@ nav {
   box-shadow: 0px 0px 6px hsla(41, 80%, 40%, 0.5);
   border-radius: 3px;
   position: absolute;
-  /* top: 0; */
   right: 0px;
 }
 
-#lang-menu ul li {
+.lang {
   display: flex;
   padding: 10px;
+  cursor: pointer;
   align-items: center;
   backdrop-filter: blur(10px);
 }
 
-#lang-menu ul li:hover {
+.lang:hover {
   background-color: hsla(41, 50%, 60%, 0.5);
 }
 
-#lang-menu ul li span {
+span {
   margin: 0 5px;
 }
 
 #selected-lang {
   cursor: pointer;
-  display: block;
-  width: 100%;
 }
 
 #lang-menu:hover ul {
   display: block;
-}
-
-span {
-  font-size: 1em;
 }

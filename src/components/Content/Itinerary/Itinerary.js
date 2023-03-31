@@ -64,17 +64,6 @@ const Itinerary = () => {
             alt="Navigate with Google Maps"
           ></img>
         </a>
-        {/* <a
-          target="_blank"
-          href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MGRocHBpY2tvNWNycjc1bTY1aW5sc3JyM3UgdGFueWE5a2luQG0&amp;tmsrc=tanya9kin%40gmail.com"
-        > */}
-        {/* <img
-            className="linkToNavigate"
-            alt="Add to Google Calendar"
-            border="0"
-            src="https://www.google.com/calendar/images/ext/gc_button1_iw.gif"
-          ></img> */}
-        {/* </a> */}
       </div>
       <div className="section" id="#save_to_calendar">
         <h3>{t("itinerary.calendar")}</h3>

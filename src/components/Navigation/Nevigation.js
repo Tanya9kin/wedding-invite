@@ -44,6 +44,9 @@ const Navigation = () => {
   const handleClick = (e) => {
     const lang = e.target.id;
     console.log(lang);
+    if (selectedLang === lang) {
+      return;
+    }
     setSelectedLangCode(lang);
     setSelectedLang(
       lang === "en" ? "English" : lang === "he" ? "Hebrew" : "Ukrainian"
@@ -81,7 +84,11 @@ const Navigation = () => {
               id={code}
               onClick={handleClick}
             >
-              <span className={`fi fi-${country_code}`}></span>
+              <span
+                className={`fi fi-${country_code}`}
+                onClick={handleClick}
+                id={code}
+              ></span>
               {name}
             </li>
           ))}

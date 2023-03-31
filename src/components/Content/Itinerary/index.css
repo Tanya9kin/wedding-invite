@@ -39,8 +39,7 @@ a > .linkToNavigate {
   z-index: 9;
   display: inline;
   margin: 15px 10px;
-  height: 30px;
-  max-width: fit-content;
+  height: 3em;
   filter: drop-shadow(2px 2px 2px hsla(0, 0%, 0%, 0.5));
 }
 

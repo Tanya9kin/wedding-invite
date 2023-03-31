@@ -1,6 +1,8 @@
 import "./index.css";
 import wazeLogo from "/src/images/Waze_logo_2022.png";
 import googleMapsLogo from "/src/images/Google_Maps_icon.png";
+import googleCalendar from "/src/images/Google_Calendar_icon.png";
+import outlookCalendar from "/src/images/outlook-calendar.png";
 import flower from "/src/images/single-flower.png";
 import { useTranslation } from "react-i18next";
 
@@ -62,16 +64,36 @@ const Itinerary = () => {
             alt="Navigate with Google Maps"
           ></img>
         </a>
-        <a
+        {/* <a
           target="_blank"
           href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MGRocHBpY2tvNWNycjc1bTY1aW5sc3JyM3UgdGFueWE5a2luQG0&amp;tmsrc=tanya9kin%40gmail.com"
-        >
-          <img
+        > */}
+        {/* <img
             className="linkToNavigate"
             alt="Add to Google Calendar"
             border="0"
             src="https://www.google.com/calendar/images/ext/gc_button1_iw.gif"
-          ></img>
+          ></img> */}
+        {/* </a> */}
+      </div>
+      <div className="section" id="#save_to_calendar">
+        <h3>{t("itinerary.calendar")}</h3>
+        <div className="border"></div>
+        <a
+          href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20230503T163000Z%2F20230503T205900Z&details=https%3A%2F%2Ftanyandaniel.netlify.app%2F&location=%D7%90%D7%95%D7%9C%D7%9D%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D%20%D7%9B%D7%A8%D7%9E%D7%9C%D7%94%2C%20%D7%99%D7%92%D7%95%D7%A8&text=%F0%9F%95%BA%F0%9F%92%83Tanya%20%26%20Daniel%20-%20The%20Wedding"
+          title="Save Event in Google Calendar"
+          className="addToCalendar"
+          target="_blank"
+        >
+          <img className="linkToNavigate" src={googleCalendar}></img>
+        </a>
+        <a
+          href="https://outlook.live.com/calendar/0/deeplink/compose?allday=false&body=https%3A%2F%2Ftanyandaniel.netlify.app%2F&enddt=2023-05-03T20%3A59%3A00%2B00%3A00&location=%D7%90%D7%95%D7%9C%D7%9D%20%D7%90%D7%99%D7%A8%D7%95%D7%A2%D7%99%D7%9D%20%D7%9B%D7%A8%D7%9E%D7%9C%D7%94%2C%20%D7%99%D7%92%D7%95%D7%A8&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2023-05-03T16%3A30%3A00%2B00%3A00&subject=%F0%9F%95%BA%F0%9F%92%83Tanya%20%26%20Daniel%20-%20The%20Wedding"
+          title="Save Event in Outlook Calendar"
+          className="addToCalendar"
+          target="_blank"
+        >
+          <img className="linkToNavigate" src={outlookCalendar}></img>
         </a>
       </div>
     </div>

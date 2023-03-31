@@ -18,7 +18,10 @@
     "ceremony": "Ceremony",
     "dinner": "Dinner",
     "party": "Party",
-    "navigate": "Navigate"
+    "navigate": "Navigate",
+    "calendar": "So you won't forget",
+    "google_calendar": "Add to Google Calendar",
+    "microsoft_calendar": "Add to Microsoft Calendar"
   },
   "credits": "Website made by Tanya Deveykin"
 }

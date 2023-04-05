@@ -3,59 +3,48 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./index.css";
 
 const restrictions = ["none", "Vegan", "Vegeterian"];
+const formFeilds = {
+  first_name: "",
+  last_name: "",
+  phone: "",
+  plus_one: false,
+  plus_one_name: "",
+  food_restrictions: restrictions[0],
+  confirmation: false,
+};
 
 const RSVP = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [plusOne, setPlusOne] = useState(false);
-  const [plusOneName, setPlusOneName] = useState("");
-  const [foodRestrictions, setFoodRestrictions] = useState(restrictions[0]);
-  const [confirmation, setConfirmation] = useState(false);
+  const [form, setForm] = useState(formFeilds);
 
-  const renderPlusOne = () => {
-    if (plusOne) {
-      return (
-        <input
-          placeholder="Name of +1"
-          name="name_of_plus_one"
-          id="name_of_plus_one"
-          type="text"
-          value={plusOneName}
-          onChange={(e) => setPlusOneName(e.target.value)}
-          maxLength="30"
-        ></input>
-      );
-    }
-  };
-
-  const clearForm = () => {
-    setFirstName("");
-    setLastName("");
-    setPlusOne(false);
-    setPlusOneName("");
-    setFoodRestrictions(restrictions[0]);
-    setConfirmation(false);
-    setPhone("");
-  };
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    clearForm();
-    navigate("/");
-  };
+
+  // const handleSubmit = (e) => {
+  // fetch("/", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //   body: encode({ "form-name": "contact", ...form }),
+  // })
+  //   .then(() => alert("Success!"))
+  //   .catch((error) => alert(error));
+
+  // e.preventDefault();
+
+  // navigate("/");
+  // };
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form name="contact" method="post" netlify>
       <h3>RSVP</h3>
+      <input type="hidden" name="form-name" value="contact" />
       <input
-        onChange={(e) => {
-          setFirstName(e.target.value);
-        }}
+        onChange={handleChange}
         placeholder="First Name"
         name="first_name"
         id="first_name"
-        value={firstName}
+        value={form.first_name}
         type="text"
         required
         minLength="2"
@@ -63,13 +52,11 @@ const RSVP = () => {
       ></input>
       <br />
       <input
-        onChange={(e) => {
-          setLastName(e.target.value);
-        }}
+        onChange={handleChange}
         placeholder="Last Name"
         name="last_name"
         id="last_name"
-        value={lastName}
+        value={form.last_name}
         type="text"
         maxLength="12"
         minLength="2"
@@ -80,8 +67,9 @@ const RSVP = () => {
         name="phone"
         id="phone"
         placeholder="Phone Number"
-        onChange={(e) => setPhone(e.target.value)}
+        onChange={handleChange}
         type="tel"
+        value={form.phone}
         required
         minLength="10"
         maxLength="15"
@@ -89,21 +77,34 @@ const RSVP = () => {
       <br />
       <label htmlFor="plus_one">Plus One?</label>
       <input
-        onChange={(e) => (plusOne ? setPlusOne(false) : setPlusOne(true))}
+        checked={form.plus_one}
+        onChange={(e) => {
+          console.log(form);
+          setForm({ ...form, plus_one: !form.plus_one });
+          console.log(form);
+        }}
         name="plus_one"
         id="plus_one"
-        checked={plusOne}
         type="checkbox"
       ></input>
       <br />
-      {renderPlusOne()}
+      <input
+        hidden={!form.plus_one}
+        placeholder="Name of +1"
+        name="plus_one_name"
+        id="plus_one_name"
+        type="text"
+        value={form.plus_one_name}
+        onChange={handleChange}
+        maxLength="30"
+      ></input>
       <br />
       <label htmlFor="food_restrictions">Any Food Restristions?</label>
       <select
         id="food_restrictions"
         name="food_restrictions"
-        value={foodRestrictions}
-        onChange={(e) => setFoodRestrictions(e.target.value)}
+        value={form.food_restrictions}
+        onChange={handleChange}
       >
         <option value={restrictions[0]}>{restrictions[0]}</option>
         <option value={restrictions[1]}>{restrictions[1]}</option>
@@ -113,11 +114,11 @@ const RSVP = () => {
       <label htmlFor="confirmation">Will we be seeing you?</label>
       <input
         onChange={(e) =>
-          confirmation ? setConfirmation(false) : setConfirmation(true)
+          setForm({ ...form, confirmation: form.confirmation ? false : true })
         }
         name="confirmation"
         id="confirmation"
-        checked={confirmation}
+        checked={form.confirmation}
         type="checkbox"
       ></input>
       <br />

@@ -51,8 +51,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "💃Tanya & Daniel🕺",
-      favicon: "./favicon.ico",
+      template: "src/index.html",
     }),
   ],
 };

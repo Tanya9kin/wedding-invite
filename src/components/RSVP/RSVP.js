@@ -20,10 +20,11 @@ const RSVP = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(form);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(e.target).toString(),
+      body: new URLSearchParams(form).toString(),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));

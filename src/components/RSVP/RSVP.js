@@ -18,19 +18,19 @@ const RSVP = () => {
 
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  // fetch("/", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //   body: encode({ "form-name": "contact", ...form }),
-  // })
-  //   .then(() => alert("Success!"))
-  //   .catch((error) => alert(error));
+  const handleSubmit = (e) => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...form }),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
 
-  // e.preventDefault();
+    e.preventDefault();
 
-  // navigate("/");
-  // };
+    navigate("/");
+  };
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,7 +38,12 @@ const RSVP = () => {
   return (
     <form name="contact" method="post" netlify>
       <h3>RSVP</h3>
-      <input type="hidden" name="form-name" value="contact" />
+      <input
+        type="hidden"
+        name="form-name"
+        value="contact"
+        onSubmit={handleSubmit}
+      />
       <input
         onChange={handleChange}
         placeholder="First Name"

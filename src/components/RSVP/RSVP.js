@@ -1,23 +1,25 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./index.css";
-
-const restrictions = ["none", "Vegan", "Vegeterian"];
-const formFeilds = {
-  first_name: "",
-  last_name: "",
-  phone: "",
-  plus_one: false,
-  plus_one_name: "",
-  food_restrictions: restrictions[0],
-  confirmation: false,
-};
+import { useTranslation } from "react-i18next";
 
 const RSVP = () => {
-  const [form, setForm] = useState(formFeilds);
-
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
+  const restrictions = [t("form.none"), t("form.vegan"), t("form.vegeterian")];
+
+  const formFeilds = {
+    first_name: "",
+    last_name: "",
+    phone: "",
+    plus_one: false,
+    plus_one_name: "",
+    food_restrictions: restrictions[0],
+    confirmation: false,
+  };
+
+  const [form, setForm] = useState(formFeilds);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
@@ -46,11 +48,11 @@ const RSVP = () => {
       data-netlify="true"
       onSubmit={handleSubmit}
     >
-      <h3>RSVP</h3>
+      <h3>{t("RSVP")}</h3>
       <input type="hidden" name="form-name" value="contact" />
       <input
         onChange={handleChange}
-        placeholder="First Name"
+        placeholder={t("form.first_name")}
         name="first_name"
         id="first_name"
         value={form.first_name}
@@ -62,7 +64,7 @@ const RSVP = () => {
       <br />
       <input
         onChange={handleChange}
-        placeholder="Last Name"
+        placeholder={t("form.last_name")}
         name="last_name"
         id="last_name"
         value={form.last_name}
@@ -75,7 +77,7 @@ const RSVP = () => {
       <input
         name="phone"
         id="phone"
-        placeholder="Phone Number"
+        placeholder={t("form.phone")}
         onChange={handleChange}
         type="tel"
         value={form.phone}
@@ -84,7 +86,7 @@ const RSVP = () => {
         maxLength="15"
       ></input>
       <br />
-      <label htmlFor="plus_one">Plus One?</label>
+      <label htmlFor="plus_one">{t("form.plus_one")}</label>
       <input
         checked={form.plus_one}
         onChange={(e) => {
@@ -99,7 +101,7 @@ const RSVP = () => {
       <br />
       <input
         hidden={!form.plus_one}
-        placeholder="Name of +1"
+        placeholder={t("form.plus_one_name")}
         name="plus_one_name"
         id="plus_one_name"
         type="text"
@@ -108,7 +110,7 @@ const RSVP = () => {
         maxLength="30"
       ></input>
       <br />
-      <label htmlFor="food_restrictions">Any Food Restristions?</label>
+      <label htmlFor="food_restrictions">{t("form.food_restrictions")}</label>
       <select
         id="food_restrictions"
         name="food_restrictions"
@@ -120,7 +122,7 @@ const RSVP = () => {
         <option value={restrictions[2]}>{restrictions[2]}</option>
       </select>
       <br />
-      <label htmlFor="confirmation">Will we be seeing you?</label>
+      <label htmlFor="confirmation">{t("form.confirmation")}</label>
       <input
         onChange={(e) =>
           setForm({ ...form, confirmation: form.confirmation ? false : true })
@@ -131,8 +133,8 @@ const RSVP = () => {
         type="checkbox"
       ></input>
       <br />
-      <input type="submit" value="Submit"></input>
-      <NavLink to="/">Go Back</NavLink>
+      <input type="submit" value={t("form.submit")}></input>
+      <NavLink to="/">{t("form.back")}</NavLink>
     </form>
   );
 };

@@ -23,5 +23,24 @@
     "google_calendar": "Add to Google Calendar",
     "microsoft_calendar": "Add to Microsoft Calendar"
   },
+  "form": {
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "phone": "Phone Number",
+    "plus_one": "Plus one?",
+    "plus_one_name": "Name of plus one",
+    "food_restrictions": "Food Restrictions",
+    "none": "None",
+    "vegan": "Vegan",
+    "vegeterian": "Vegeterian",
+    "confirmation": "Will we be seeing you?",
+    "yes": "Yes",
+    "no": "No",
+    "sure": "Are you sure?",
+    "sadly_yes": "Sadly yes..",
+    "success": "Thanks for your submition!",
+    "submit": "Submit",
+    "back": "Go Back"
+  },
   "credits": "Website made by Tanya Deveykin"
 }

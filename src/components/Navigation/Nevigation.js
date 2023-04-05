@@ -71,7 +71,6 @@ const Navigation = () => {
         </button>
       </div>
       <div className="nav-element" style={{ color: "grey" }}>
-        {/* {t("rsvp_coming_soon")} */}
         <NavLink to="RSVP">{t("RSVP")}</NavLink>
       </div>
       <div className="nav-element" id="lang-menu">

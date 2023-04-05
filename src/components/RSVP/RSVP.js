@@ -23,7 +23,7 @@ const RSVP = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...form }),
+      body: new URLSearchParams(form).toString(),
     })
       .then(() => alert("Success!"))
       .catch((error) => alert(error));
@@ -35,7 +35,12 @@ const RSVP = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <form name="contact" method="post" onSubmit={handleSubmit}>
+    <form
+      name="contact"
+      method="post"
+      data-netlify="true"
+      onSubmit={handleSubmit}
+    >
       <h3>RSVP</h3>
       <input type="hidden" name="form-name" value="contact" />
       <input

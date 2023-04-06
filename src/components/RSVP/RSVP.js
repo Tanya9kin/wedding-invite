@@ -136,7 +136,7 @@ const RSVP = () => {
                 name="confirmation"
                 value="yes"
               />
-              {t("yes")}
+              {t("form.yes")}
             </label>
             <label for="no">
               <input
@@ -146,7 +146,7 @@ const RSVP = () => {
                 value="no"
                 className="checkbox"
               />{" "}
-              {t("no")}
+              {t("form.no")}
             </label>
             <label for="not_sure">
               <input
@@ -156,7 +156,7 @@ const RSVP = () => {
                 value="not sure"
                 className="checkbox"
               />
-              unsure
+              {t("form.unsure")}
             </label>
           </div>
         </div>

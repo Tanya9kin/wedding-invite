@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import globe from "../../images/favicon-32x32.png";
@@ -34,6 +34,8 @@ const Navigation = () => {
       : "Ukrainian"
   );
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     i18n.changeLanguage(selectedLangCode);
     document.querySelector("html").lang = selectedLangCode;
@@ -57,21 +59,25 @@ const Navigation = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleScrollToItinerary = () => {
+  const handleScrollTo = (section) => {
     document
-      .getElementById("itinerary")
+      .getElementById(section)
       .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const handleToggleRSVP = () => {
+    document.getElementById("RSVP") ? navigate("/") : navigate("RSVP");
   };
 
   return (
     <nav dir="ltr">
       <div className="nav-element">
-        <button onClick={handleScrollToItinerary}>
+        <button onClick={handleToggleRSVP}>{t("RSVP")}</button>
+      </div>
+      <div className="nav-element">
+        <button onClick={() => handleScrollTo("itinerary")}>
           {t("itinerary.heading")}
         </button>
-      </div>
-      <div className="nav-element" style={{ color: "grey" }}>
-        <NavLink to="RSVP">{t("RSVP")}</NavLink>
       </div>
       <div className="nav-element" id="lang-menu">
         <img id="selected-lang" src={globe}></img>

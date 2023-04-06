@@ -32,110 +32,137 @@ const RSVP = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => alert("Success!"))
+      .then(() => {
+        // alert("Success!");
+        navigate("/success");
+      })
       .catch((error) => alert(error));
-
-    navigate("/");
   };
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
-    <form
-      name="contact"
-      method="post"
-      data-netlify="true"
-      onSubmit={handleSubmit}
-    >
-      <h3>{t("RSVP")}</h3>
-      <input type="hidden" name="form-name" value="contact" />
-      <input
-        onChange={handleChange}
-        placeholder={t("form.first_name")}
-        name="first_name"
-        id="first_name"
-        value={form.first_name}
-        type="text"
-        required
-        minLength="2"
-        maxLength="12"
-      ></input>
-      <br />
-      <input
-        onChange={handleChange}
-        placeholder={t("form.last_name")}
-        name="last_name"
-        id="last_name"
-        value={form.last_name}
-        type="text"
-        maxLength="12"
-        minLength="2"
-        required
-      ></input>
-      <br />
-      <input
-        name="phone"
-        id="phone"
-        placeholder={t("form.phone")}
-        onChange={handleChange}
-        type="tel"
-        value={form.phone}
-        required
-        minLength="10"
-        maxLength="15"
-      ></input>
-      <br />
-      <label htmlFor="plus_one">{t("form.plus_one")}</label>
-      <input
-        checked={form.plus_one}
-        onChange={(e) => {
-          console.log(form);
-          setForm({ ...form, plus_one: !form.plus_one });
-          console.log(form);
-        }}
-        name="plus_one"
-        id="plus_one"
-        type="checkbox"
-      ></input>
-      <br />
-      <input
-        hidden={!form.plus_one}
-        placeholder={t("form.plus_one_name")}
-        name="plus_one_name"
-        id="plus_one_name"
-        type="text"
-        value={form.plus_one_name}
-        onChange={handleChange}
-        maxLength="30"
-      ></input>
-      <br />
-      <label htmlFor="food_restrictions">{t("form.food_restrictions")}</label>
-      <select
-        id="food_restrictions"
-        name="food_restrictions"
-        value={form.food_restrictions}
-        onChange={handleChange}
+    <div id="RSVP">
+      <form
+        name="contact"
+        method="post"
+        data-netlify="true"
+        onSubmit={handleSubmit}
       >
-        <option value={restrictions[0]}>{restrictions[0]}</option>
-        <option value={restrictions[1]}>{restrictions[1]}</option>
-        <option value={restrictions[2]}>{restrictions[2]}</option>
-      </select>
-      <br />
-      <label htmlFor="confirmation">{t("form.confirmation")}</label>
-      <input
-        onChange={(e) =>
-          setForm({ ...form, confirmation: form.confirmation ? false : true })
-        }
-        name="confirmation"
-        id="confirmation"
-        checked={form.confirmation}
-        type="checkbox"
-      ></input>
-      <br />
-      <input type="submit" value={t("form.submit")}></input>
-      <NavLink to="/">{t("form.back")}</NavLink>
-    </form>
+        <h3>{t("RSVP")}</h3>
+        <input type="hidden" name="form-name" value="contact" />
+        <input
+          onChange={handleChange}
+          placeholder={t("form.first_name")}
+          name="first_name"
+          id="first_name"
+          value={form.first_name}
+          type="text"
+          required
+          minLength="2"
+          maxLength="12"
+        ></input>
+        <input
+          onChange={handleChange}
+          placeholder={t("form.last_name")}
+          name="last_name"
+          id="last_name"
+          value={form.last_name}
+          type="text"
+          maxLength="12"
+          minLength="2"
+          required
+        ></input>
+        <input
+          name="phone"
+          id="phone"
+          placeholder={t("form.phone")}
+          onChange={handleChange}
+          type="tel"
+          value={form.phone}
+          required
+          minLength="10"
+          maxLength="15"
+        ></input>
+        <label htmlFor="plus_one">
+          {t("form.plus_one")}
+          <input
+            className="checkbox"
+            checked={form.plus_one}
+            onChange={(e) => {
+              console.log(form);
+              setForm({ ...form, plus_one: !form.plus_one });
+              console.log(form);
+            }}
+            name="plus_one"
+            id="plus_one"
+            type="checkbox"
+          ></input>
+        </label>
+        <input
+          hidden={!form.plus_one}
+          placeholder={t("form.plus_one_name")}
+          name="plus_one_name"
+          id="plus_one_name"
+          type="text"
+          value={form.plus_one_name}
+          onChange={handleChange}
+          maxLength="30"
+        ></input>
+        <label htmlFor="food_restrictions">{t("form.food_restrictions")}</label>
+        <select
+          id="food_restrictions"
+          name="food_restrictions"
+          value={form.food_restrictions}
+          onChange={handleChange}
+        >
+          <option value={restrictions[0]}>{restrictions[0]}</option>
+          <option value={restrictions[1]}>{restrictions[1]}</option>
+          <option value={restrictions[2]}>{restrictions[2]}</option>
+        </select>
+        <div id="confirmation">
+          {t("form.confirmation")}
+          <div className="horizontal">
+            <label for="yes">
+              <input
+                type="radio"
+                id="yes"
+                className="checkbox"
+                name="confirmation"
+                value="yes"
+              />
+              {t("yes")}
+            </label>
+            <label for="no">
+              <input
+                type="radio"
+                id="no"
+                name="confirmation"
+                value="no"
+                className="checkbox"
+              />{" "}
+              {t("no")}
+            </label>
+            <label for="not_sure">
+              <input
+                type="radio"
+                id="not_sure"
+                name="confirmation"
+                value="not sure"
+                className="checkbox"
+              />
+              unsure
+            </label>
+          </div>
+        </div>
+
+        <input type="submit" value={t("form.submit")}></input>
+        <button>
+          <NavLink to="/">{t("form.back")}</NavLink>
+        </button>
+      </form>
+    </div>
   );
 };
 

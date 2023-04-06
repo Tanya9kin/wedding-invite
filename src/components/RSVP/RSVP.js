@@ -59,6 +59,7 @@ const RSVP = () => {
           id="first_name"
           value={form.first_name}
           type="text"
+          pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           required
           minLength="2"
           maxLength="12"
@@ -70,6 +71,7 @@ const RSVP = () => {
           id="last_name"
           value={form.last_name}
           type="text"
+          pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           maxLength="12"
           minLength="2"
           required
@@ -80,6 +82,7 @@ const RSVP = () => {
           placeholder={t("form.phone")}
           onChange={handleChange}
           type="tel"
+          pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
           value={form.phone}
           required
           minLength="10"
@@ -97,6 +100,7 @@ const RSVP = () => {
             }}
             name="plus_one"
             id="plus_one"
+            pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
             type="checkbox"
           ></input>
         </label>

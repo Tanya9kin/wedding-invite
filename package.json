@@ -22,7 +22,10 @@
     "style-loader": "^3.3.2",
     "webpack": "^5.76.3",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.13.1"
+    "webpack-dev-server": "^4.13.1",
+    "http-cache-semantics": ">=4.1.1",
+    "glob-parent": ">=5.1.2",
+    "got": ">=11.8.5"
   },
   "dependencies": {
     "@babel/preset-react": "^7.18.6",

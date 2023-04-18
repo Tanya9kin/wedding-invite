@@ -1,5 +1,6 @@
 form,
-.success {
+.success,
+.failure {
   position: fixed;
   z-index: 9;
   width: max-content;
@@ -14,6 +15,10 @@ form,
   backdrop-filter: blur(8px);
   background-color: hsla(41, 100%, 70%, 0.8);
   font-size: 1.6em;
+}
+
+.failure {
+  color: rgb(127, 16, 16);
 }
 
 option {
@@ -55,7 +60,8 @@ label {
 
 @media screen and (max-width: 450px) {
   form,
-  .success {
+  .success,
+  .failure {
     width: 100%;
     margin: 0 auto;
     padding: 0px;

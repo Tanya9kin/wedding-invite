@@ -8,6 +8,7 @@ import App from "./App";
 import ErrorPage from "./error-page";
 import RSVP from "./components/RSVP/RSVP";
 import Success from "./components/RSVP/Success";
+import Failure from "./components/RSVP/Failure";
 import i18n from "./i18n";
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "success",
         element: <Success />,
+      },
+      {
+        path: "failure",
+        element: <Failure />,
       },
     ],
   },

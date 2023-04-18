@@ -40,6 +40,7 @@
     "sure": "Are you sure?",
     "sadly_yes": "Sadly yes..",
     "success": "Thanks for your submition!",
+    "failure": "We encountered a problem while submiting your data, please try again later",
     "submit": "Submit",
     "back": "Close form"
   },

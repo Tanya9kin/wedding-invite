@@ -36,7 +36,7 @@ const RSVP = () => {
         // alert("Success!");
         navigate("/success");
       })
-      .catch((error) => alert(error));
+      .catch((error) => navigate("/failure"));
   };
 
   const handleChange = (e) =>

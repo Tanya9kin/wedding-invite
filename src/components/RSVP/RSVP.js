@@ -20,6 +20,7 @@ const RSVP = () => {
   };
 
   const [form, setForm] = useState(formFeilds);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
@@ -27,20 +28,48 @@ const RSVP = () => {
     const myForm = e.target;
     const formData = new FormData(myForm);
 
+    const submitButton = document.getElementById("submit_btn");
+    submitButton.disabled = true;
+    submitButton.classList.add("button--loading");
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
       .then(() => {
-        // alert("Success!");
-        navigate("/success");
+        setTimeout(() => {
+          submitButton.disabled = false;
+          submitButton.classList.remove("button--loading");
+          handleCloseForm();
+          navigate("/success");
+        }, 400);
       })
-      .catch((error) => navigate("/failure"));
+      .catch((error) => {
+        submitButton.disabled = false;
+        submitButton.classList.remove("button--loading");
+        alert(error);
+        navigate("/failure");
+      });
   };
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleCloseForm = () => {
+    const closingAnimation = [{ left: "0px" }, { left: "-440px" }];
+
+    const closingTiming = {
+      duration: 2000,
+      // easing: "ease-in",
+      fill: "both",
+    };
+
+    document.getElementById("RSVP").animate(closingAnimation, closingTiming);
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
+  };
 
   return (
     <div id="RSVP">
@@ -125,7 +154,7 @@ const RSVP = () => {
         <div id="confirmation">
           {t("form.confirmation")}
           <div className="horizontal">
-            <label for="yes">
+            <label htmlFor="yes">
               <input
                 type="radio"
                 id="yes"
@@ -135,7 +164,7 @@ const RSVP = () => {
               />
               {t("form.yes")}
             </label>
-            <label for="no">
+            <label htmlFor="no">
               <input
                 type="radio"
                 id="no"
@@ -145,7 +174,7 @@ const RSVP = () => {
               />{" "}
               {t("form.no")}
             </label>
-            <label for="not_sure">
+            <label htmlFor="not_sure">
               <input
                 type="radio"
                 id="not_sure"
@@ -158,9 +187,11 @@ const RSVP = () => {
           </div>
         </div>
 
-        <input type="submit" value={t("form.submit")}></input>
-        <button>
-          <NavLink to="/">{t("form.back")}</NavLink>
+        <button type="submit" id="submit_btn">
+          <div className="button__text">{t("form.submit")}</div>
+        </button>
+        <button id="back_btn" type="reset" onClick={handleCloseForm}>
+          {t("form.back")}
         </button>
       </form>
     </div>

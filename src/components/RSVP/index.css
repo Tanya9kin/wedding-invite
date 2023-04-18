@@ -17,6 +17,12 @@ form,
   font-size: 1.6em;
 }
 
+form {
+  -webkit-animation: slide 0.5s forwards;
+  animation: slide 0.5s forwards;
+  left: -440px;
+}
+
 .failure {
   color: rgb(127, 16, 16);
 }
@@ -40,6 +46,7 @@ h3 {
 #confirmation {
   width: 100%;
   background-color: hsla(41, 100%, 70%, 1);
+  border-radius: 10px;
   padding: 10px 0;
   margin-top: 10px;
 }
@@ -53,9 +60,86 @@ h3 {
 input,
 label {
   width: 90%;
-  margin: 15px 0;
+  margin: 10px 0;
   /* display: block; */
   align-self: center;
+  border-radius: 5px;
+}
+
+#submit_btn {
+  background-color: hsla(42, 100%, 92%, 0.8);
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 hsla(230, 68%, 22%, 0.7);
+  width: 5em;
+  margin: 5px;
+  margin-top: 20px;
+  position: relative;
+}
+
+#submit_btn:active {
+  background: hsla(42, 100%, 92%, 1);
+  top: 2px;
+  left: 2px;
+  box-shadow: 1px 1px 0 hsla(230, 68%, 22%, 0.4);
+}
+
+.button__text {
+  font-family: "Libre Baskerville bold", "Bellefair", serif;
+  color: hsla(230, 68%, 22%, 1);
+  transition: all 0.2s;
+}
+/* 
+html:lang("he") {
+  font-size: 1.5em;
+} */
+
+.button--loading .button__text {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.button--loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: hsla(230, 68%, 22%, 1);
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes slide {
+  from {
+    left: -440px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide {
+  from {
+    left: -440px;
+  }
+  to {
+    left: 0;
+  }
 }
 
 @media screen and (max-width: 450px) {

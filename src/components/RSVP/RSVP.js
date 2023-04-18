@@ -61,7 +61,7 @@ const RSVP = () => {
           type="text"
           pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           required
-          minLength="2"
+          minLength="1"
           maxLength="12"
         ></input>
         <input
@@ -73,7 +73,7 @@ const RSVP = () => {
           type="text"
           pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           maxLength="12"
-          minLength="2"
+          minLength="1"
           required
         ></input>
         <input

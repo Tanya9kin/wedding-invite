@@ -59,7 +59,6 @@ const RSVP = () => {
           id="first_name"
           value={form.first_name}
           type="text"
-          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           required
           minLength="1"
           maxLength="12"
@@ -71,7 +70,6 @@ const RSVP = () => {
           id="last_name"
           value={form.last_name}
           type="text"
-          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           maxLength="12"
           minLength="1"
           required
@@ -100,7 +98,6 @@ const RSVP = () => {
             }}
             name="plus_one"
             id="plus_one"
-            pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
             type="checkbox"
           ></input>
         </label>

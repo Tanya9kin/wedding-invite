@@ -59,7 +59,7 @@ const RSVP = () => {
           id="first_name"
           value={form.first_name}
           type="text"
-          pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           required
           minLength="1"
           maxLength="12"
@@ -71,7 +71,7 @@ const RSVP = () => {
           id="last_name"
           value={form.last_name}
           type="text"
-          pattern="^[\D'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
+          pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$"
           maxLength="12"
           minLength="1"
           required

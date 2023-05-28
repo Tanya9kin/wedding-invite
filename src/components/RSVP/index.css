@@ -151,3 +151,8 @@ html:lang("he") {
     padding: 0px;
   }
 }
+
+#demonstration {
+  font-size: 0.3em;
+  text-decoration: underline;
+}

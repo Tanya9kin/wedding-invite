@@ -23,34 +23,49 @@ const RSVP = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
 
     const myForm = e.target;
     const formData = new FormData(myForm);
+    console.log(formData.get("phone"));
+    console.log("in RSVP submit");
 
     const submitButton = document.getElementById("submit_btn");
     submitButton.disabled = true;
     submitButton.classList.add("button--loading");
 
-    fetch("/", {
+    fetch("/.netlify/functions/index", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => {
-        setTimeout(() => {
-          submitButton.disabled = false;
-          submitButton.classList.remove("button--loading");
-          handleCloseForm();
-          navigate("/success");
-        }, 400);
-      })
-      .catch((error) => {
+      body: JSON.stringify({
+        phone: formData.get("phone"),
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => {
+            setTimeout(() => {
+              submitButton.disabled = false;
+              submitButton.classList.remove("button--loading");
+              handleCloseForm();
+              navigate("/success");
+            }, 400);
+          })
+          .catch((error) => {
+            submitButton.disabled = false;
+            submitButton.classList.remove("button--loading");
+            alert(error);
+            navigate("/failure");
+          });
+      } else {
+        alert("This contact already exists, would you like to update?");
         submitButton.disabled = false;
         submitButton.classList.remove("button--loading");
-        alert(error);
-        navigate("/failure");
-      });
+      }
+    });
   };
 
   const handleChange = (e) =>

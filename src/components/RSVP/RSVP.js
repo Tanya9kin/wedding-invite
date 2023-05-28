@@ -102,7 +102,7 @@ const RSVP = () => {
         onSubmit={handleSubmit}
       >
         <h3>{t("RSVP")}</h3>
-        <h4>This form is here for demonstration purposes only</h4>
+        <p>This form is here for demonstration purposes only</p>
         <input type="hidden" name="form-name" value="contact" />
         <input
           onChange={handleChange}

@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 
+const prod_mode = false;
+
 const RSVP = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -27,45 +29,50 @@ const RSVP = () => {
 
     const myForm = e.target;
     const formData = new FormData(myForm);
-    console.log(formData.get("phone"));
-    console.log("in RSVP submit");
+    // console.log(formData.get("phone"));
+    // console.log("in RSVP submit");
 
     const submitButton = document.getElementById("submit_btn");
     submitButton.disabled = true;
     submitButton.classList.add("button--loading");
 
-    fetch("/.netlify/functions/index", {
-      method: "POST",
-      body: JSON.stringify({
-        phone: formData.get("phone"),
-      }),
-    }).then((res) => {
-      if (res.status === 200) {
-        fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams(formData).toString(),
-        })
-          .then(() => {
-            setTimeout(() => {
+    if (prod_mode) {
+      fetch("/.netlify/functions/index", {
+        method: "POST",
+        body: JSON.stringify({
+          phone: formData.get("phone"),
+        }),
+      }).then((res) => {
+        if (res.status === 200) {
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+          })
+            .then(() => {
+              setTimeout(() => {
+                submitButton.disabled = false;
+                submitButton.classList.remove("button--loading");
+                handleCloseForm();
+                navigate("/success");
+              }, 400);
+            })
+            .catch((error) => {
               submitButton.disabled = false;
               submitButton.classList.remove("button--loading");
-              handleCloseForm();
-              navigate("/success");
-            }, 400);
-          })
-          .catch((error) => {
-            submitButton.disabled = false;
-            submitButton.classList.remove("button--loading");
-            alert(error);
-            navigate("/failure");
-          });
-      } else {
-        alert("This contact already exists, would you like to update?");
-        submitButton.disabled = false;
-        submitButton.classList.remove("button--loading");
-      }
-    });
+              alert(error);
+              navigate("/failure");
+            });
+        } else {
+          alert("This contact already exists, would you like to update?");
+          submitButton.disabled = false;
+          submitButton.classList.remove("button--loading");
+        }
+      });
+    } else {
+      handleCloseForm();
+      navigate("/success");
+    }
   };
 
   const handleChange = (e) =>
@@ -95,6 +102,7 @@ const RSVP = () => {
         onSubmit={handleSubmit}
       >
         <h3>{t("RSVP")}</h3>
+        <h4>This form is here for demonstration purposes only</h4>
         <input type="hidden" name="form-name" value="contact" />
         <input
           onChange={handleChange}
@@ -202,7 +210,7 @@ const RSVP = () => {
           </div>
         </div>
 
-        <button type="submit" id="submit_btn">
+        <button type="submit" id="submit_btn" disabled={true}>
           <div className="button__text">{t("form.submit")}</div>
         </button>
         <button id="back_btn" type="reset" onClick={handleCloseForm}>
